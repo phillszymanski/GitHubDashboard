@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./GitHubDashboardAPI
+      dockerfile: Dockerfile
+    ports:
+      - "5010:5010"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - GitHub__Token=${GITHUB_TOKEN}
+      - Cors__AllowedOrigins__0=http://localhost:3000
+      - Cache__TtlSeconds=60
+    networks:
+      - github-dashboard
+
+  client:
+    build:
+      context: ./GitHubDashboardClient
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:5010
+    depends_on:
+      - api
+    networks:
+      - github-dashboard
+
+networks:
+  github-dashboard:
+    driver: bridge

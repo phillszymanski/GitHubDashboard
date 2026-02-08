@@ -1,0 +1,6 @@
+@GitHubDashboardAPI_HostAddress = http://localhost:5280
+
+GET {{GitHubDashboardAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
