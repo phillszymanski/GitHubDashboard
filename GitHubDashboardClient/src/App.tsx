@@ -12,7 +12,8 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>GitHub Dashboard</h1>
+        <h1 className="app-title">👥 GitHub Dashboard</h1>
+        <p className="app-subtitle">Analyze and visualize GitHub user activity and repository statistics</p>
       </header>
       <main className="app-content">
         {tab === 'dashboard' && (

@@ -67,27 +67,6 @@ export default function DashboardAggregate({ requestedUsername, onBack }: Dashbo
         </button>
       )}
       <h2>Dashboard Aggregate</h2>
-      <div className="input-group">
-        <label htmlFor="dashboard-username">Username</label>
-        <input
-          id="dashboard-username"
-          name="username"
-          placeholder="Enter GitHub username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          aria-required="true"
-          onKeyPress={(e) => e.key === 'Enter' && onFetch()}
-        />
-        <button 
-          type="button" 
-          onClick={onFetch} 
-          disabled={loading}
-          aria-busy={loading}
-          className="primary-button"
-        >
-          {loading ? 'Loading...' : 'Fetch'}
-        </button>
-      </div>
 
       {loading && (
         <div role="status" aria-live="polite">
